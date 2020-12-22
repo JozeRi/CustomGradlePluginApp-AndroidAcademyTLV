@@ -1,0 +1,36 @@
+apply plugin: 'java-gradle-plugin' // Allows us to create and configure custom plugins
+apply plugin: 'kotlin' // Needed as we'll write our plugin in Kotlin
+
+buildscript {
+    ext.kotlin_version = "1.4.10"
+    ext.gradle_version = "4.1.1"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Android gradle plugin will allow us to access Android specific features
+    implementation "com.android.tools.build:gradle:$gradle_version"
+}
+
+gradlePlugin {
+    plugins {
+        create("OurFirstPlugin") {
+            id = "OurFirstPlugin"
+            implementationClass = "OurFirstPlugin"
+        }
+    }
+}
