@@ -16,6 +16,8 @@ class OurFirstPlugin : Plugin<Project> {
 
             generateColorsTask(outputPath, project, variant)
 
+            generateStringsTask(outputPath, project, variant)
+
         }
     }
 
@@ -37,6 +39,29 @@ class OurFirstPlugin : Plugin<Project> {
             variant.registerGeneratedResFolders(
                 project.files(outputDirectory).builtBy(
                     colorTask
+                )
+            )
+        }
+    }
+
+    private fun generateStringsTask(outputPath: String, project: Project, variant: BaseVariant) {
+        // Make a task for each combination of build type and product flavor
+        val stringTaskName = "generateStrings${variant.name.capitalize()}"
+
+        // Register the task. Gradle will parse and add the tasks for us for the given names.
+        project.tasks.register(stringTaskName, StringsTask::class.java) { stringTask ->
+            stringTask.group = "OurNewPluginTasks"
+
+            // We write our output in the build folder. Also note that we keep a
+            // reference to this so as to later mark it as a generated resource folder
+            val outputDirectory =
+                File("$outputPath/${variant.dirName}").apply { mkdir() }
+            stringTask.outputFile = File(outputDirectory, "values/generated_strings.xml")
+
+            // Marks the output directory as an app resource folder
+            variant.registerGeneratedResFolders(
+                project.files(outputDirectory).builtBy(
+                    stringTask
                 )
             )
         }

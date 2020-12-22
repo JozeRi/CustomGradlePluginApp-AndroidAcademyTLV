@@ -17,6 +17,19 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
 
+  <TextView
+      android:id="@+id/mainText"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:textColor="@color/white"
+      android:gravity="center"
+      android:textSize="24sp"
+      android:text="@string/main_string"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:text="Test 1"/>
+
   <View
     android:id="@+id/secondaryColor"
     android:layout_width="match_parent"
@@ -26,6 +39,19 @@
     app:layout_constraintTop_toBottomOf="@id/mainColor"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
+
+  <TextView
+      android:id="@+id/secondaryText"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:textColor="@color/white"
+      android:gravity="center"
+      android:textSize="24sp"
+      android:text="@string/secondary_string"
+      app:layout_constraintTop_toBottomOf="@id/mainText"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:text="Test 2"/>
 
   <View
     android:id="@+id/thirdColor"
@@ -37,6 +63,19 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
 
+  <TextView
+      android:id="@+id/thirdText"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:textColor="@color/white"
+      android:gravity="center"
+      android:textSize="24sp"
+      android:text="@string/third_string"
+      app:layout_constraintTop_toBottomOf="@id/secondaryText"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:text="Test 3"/>
+
   <View
       android:id="@+id/fourthColor"
       android:layout_width="match_parent"
@@ -46,5 +85,18 @@
       app:layout_constraintTop_toBottomOf="@id/thirdColor"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
+
+  <TextView
+      android:id="@+id/fourthText"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:textColor="@color/white"
+      android:gravity="center"
+      android:textSize="24sp"
+      android:text="@string/fourth_string"
+      app:layout_constraintTop_toBottomOf="@id/thirdText"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:text="Test 4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
